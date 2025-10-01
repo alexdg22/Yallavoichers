@@ -1,2 +1,2 @@
 # Yallavoichers
-All yalla deals available hidden deals coustmer service available 
+All yalla deals available hidden deals coustmer service available .
