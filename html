@@ -1,0 +1,191 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gasy Yalla Voichers</title>
+  <style>
+    :root{--bg:#0b0b0d;--card:#0f1720;--muted:#9aa4b2;--accent:#ffd166;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#e6eef6;background:linear-gradient(180deg,#050505 0%, #0b0b0d 100%);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{background:linear-gradient(90deg,#ffd166,#ff8a00);width:64px;height:64px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#0b0b0d}
+    h1{margin:0;font-size:20px}
+    p.lead{color:var(--muted);margin:6px 0 22px}.grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+.card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+
+.prod{background:linear-gradient(180deg,rgba(255,255,255,0.02),var(--glass));padding:12px;border-radius:10px}
+.prod h4{margin:0 0 8px;font-size:15px}
+.price{font-weight:700}
+.tag{display:inline-block;margin-top:8px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.03);font-size:13px;color:var(--muted)}
+button.buy{margin-top:10px;width:100%;padding:10px;border-radius:10px;border:0;background:linear-gradient(90deg,#ff8a00,#ffd166);color:#071126;font-weight:700;cursor:pointer}
+
+aside .card{position:sticky;top:24px}
+label.small{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef6}
+.muted{color:var(--muted);font-size:13px}
+footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+/* responsive */
+@media (max-width:880px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}.wrap{padding:12px}}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">GV</div>
+      <div>
+        <h1>Gasy Yalla Voichers</h1>
+        <p class="lead">Fast, simple voucher deals — diamonds, coins, gifting, room points and VIPs. Choose a deal and confirm by WhatsApp.</p>
+      </div>
+    </header><div class="grid">
+  <main>
+    <div class="card">
+      <div class="section-title"><h3 style="margin:0">Dimond Tag Deals</h3><span class="muted">Prices in PKR</span></div>
+      <div class="products" id="dim-tag">
+        <!-- cards inserted by JS -->
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="card">
+      <div class="section-title"><h3 style="margin:0">Dimonds Login Deals</h3><span class="muted">Instant delivery via WhatsApp</span></div>
+      <div class="products" id="dim-login"></div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="card">
+      <div class="section-title"><h3 style="margin:0">Gifting Dimond</h3><span class="muted">For gifts & events</span></div>
+      <div class="products" id="gift-dim"></div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="card">
+      <div class="section-title"><h3 style="margin:0">Coin Login Deals</h3><span class="muted">Coins packages</span></div>
+      <div class="products" id="coin-deals"></div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="card">
+      <div class="section-title"><h3 style="margin:0">Room Points & VIPs</h3><span class="muted">Room points, VIPs & Badges</span></div>
+      <div class="products" id="room-vip">
+        <!-- static small cards -->
+        <div class="prod"><h4>Room Points</h4><div class="muted">1k point — Rs 100<br>5k — Rs 300<br>15k — Rs 850<br>30k — Rs 1500<br>50k — Rs 2300</div></div>
+        <div class="prod"><h4>VIP Deals</h4><div class="muted">Knit VIP — Rs 3200<br>Brown VIP — Rs 10000</div></div>
+        <div class="prod"><h4>Badge Open Deals</h4><div class="muted">1k ludo — Rs 1000<br>12k ludo — Rs 11000</div></div>
+        <div class="prod"><h4>Domino Badge Open</h4><div class="muted">1k domino — Rs 1100<br>12k domino — Rs 12000</div></div>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="card">
+      <h3 style="margin-top:0">Notes</h3>
+      <p class="muted">Room point purchases are for Ludo & Domino games only. Customer service available on WhatsApp. After purchase, submit screenshot for confirmation.</p>
+    </div>
+  </main>
+
+  <aside>
+    <div class="card">
+      <h3 style="margin-top:0">Buy / Contact</h3>
+      <label class="small">Choose payment method</label>
+      <select id="payment">
+        <option>JazzCash - 03264591933</option>
+        <option>EasyPaisa - 03436500480</option>
+      </select>
+
+      <label class="small">Your Name</label>
+      <input id="buyer-name" placeholder="User name" />
+      <label class="small">User ID / Game ID</label>
+      <input id="buyer-id" placeholder="User ID or in-game name" />
+
+      <label class="small">Select deal (or use product card)</label>
+      <select id="selected-deal"><option value="">-- Choose deal --</option></select>
+
+      <label class="small">Upload screenshot (optional)</label>
+      <input type="file" id="screenshot" accept="image/*" />
+
+      <button class="buy" id="confirmBtn">Confirm & Send via WhatsApp</button>
+
+      <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+      <div class="muted">Customer Service</div>
+      <div style="margin-top:8px">WhatsApp: <strong>03482734294</strong><br>Backup: <strong>03482734294</strong><br>Email: <strong>Yallavoichersa@gmail.com</strong></div>
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="card">
+      <h4 style="margin:0">Quick FAQ</h4>
+      <p class="muted">After you press confirm, WhatsApp message will open to seller with your order details. Please attach the screenshot manually if needed.</p>
+    </div>
+  </aside>
+</div>
+
+<footer>© Gasy Yalla Voichers • Made fast and simple</footer>
+
+  </div>  <script>
+    // Data
+    const data = {
+      "dimTag":[
+        ["830 Diamonds","Rs 490"],["2320 Diamonds","Rs 1170"],["5150 Diamonds","Rs 2470"],["13k Diamonds","Rs 6300"],["27k Diamonds","Rs 12600"],["55k Diamonds","Rs 23000"],["187k Diamonds","Rs 33000"]
+      ],
+      "dimLogin":[
+        ["400 Diamonds","Rs 200"],["1800 Diamonds","Rs 700"],["5000 Diamonds","Rs 2400"],["16k Diamonds","Rs 7000"],["32k Diamonds","Rs 13500"],["53k Diamonds","Rs 20000"],["107k Diamonds","Rs 33000"],["161k Diamonds","Rs 40000"],["217k Diamonds","Rs 51000"]
+      ],
+      "giftDim":[
+        ["5k Diamonds","Rs 1650"],["6k Diamonds","Rs 1730"],["7k Diamonds","Rs 1800"],["8k Diamonds","Rs 2100"],["16k Diamonds","Rs 4200"],["32k Diamonds","Rs 8000"],["53k Diamonds","Rs 11000"],["107k Diamonds","Rs 18000"],["161k Diamonds","Rs 20500"],["187k Diamonds","Rs 24500"],["217k Diamonds","Rs 29000"],["283k Diamonds","Rs 32000"],["287k Diamonds","Rs 40000"]
+      ],
+      "coinDeals":[
+        ["100k Coins","Rs 100"],["250k Coins","Rs 190"],["500k Coins","Rs 300"],["1M Coins","Rs 580"],["2M Coins","Rs 1000"],["5M Coins","Rs 4900"],["10M Coins","Rs 9500"],["15M Coins","Rs 12000"]
+      ]
+    }
+
+    function createCard(title,price,containerId){
+      const cont = document.getElementById(containerId)
+      const card = document.createElement('div'); card.className='prod'
+      card.innerHTML = `<h4>${title}</h4><div class="muted">${price}</div><div class="tag">Instant</div><button class="buy" data-title="${title}" data-price="${price}">Buy</button>`
+      cont.appendChild(card)
+    }
+
+    data.dimTag.forEach(d=>createCard(d[0],d[1],'dim-tag'))
+    data.dimLogin.forEach(d=>createCard(d[0],d[1],'dim-login'))
+    data.giftDim.forEach(d=>createCard(d[0],d[1],'gift-dim'))
+    data.coinDeals.forEach(d=>createCard(d[0],d[1],'coin-deals'))
+
+    // populate select
+    const sel = document.getElementById('selected-deal')
+    Object.values(data).flat().forEach(item=>{
+      const opt = document.createElement('option')
+      opt.value = item[0] + ' | ' + item[1]
+      opt.textContent = item[0] + ' — ' + item[1]
+      sel.appendChild(opt)
+    })
+
+    // buy button click handler
+    document.body.addEventListener('click', e=>{
+      if(e.target.matches('button.buy')){
+        const t = e.target.dataset.title
+        const p = e.target.dataset.price
+        document.getElementById('selected-deal').value = t + ' | ' + p
+        window.scrollTo({top:0,behavior:'smooth'})
+      }
+    })
+
+    document.getElementById('confirmBtn').addEventListener('click', ()=>{
+      const name = document.getElementById('buyer-name').value.trim()
+      const id = document.getElementById('buyer-id').value.trim()
+      const deal = document.getElementById('selected-deal').value
+      const pay = document.getElementById('payment').value
+      if(!name || !id || !deal){alert('Please enter your name, user id and select a deal.');return}
+
+      const phone = '923482734294' // seller WhatsApp number in international format (replace if needed)
+      const message = encodeURIComponent(`Hello, I want to buy:\nName: ${name}\nUser ID: ${id}\nDeal: ${deal}\nPayment Method: ${pay}\nPlease confirm and send payment instructions.\nThank you.`)
+      // open whatsapp
+      const wa = `https://wa.me/${phone}?text=${message}`
+      window.open(wa,'_blank')
+      alert('WhatsApp will open. Please attach screenshot manually if required and send the message.')
+    })
+  </script></body>
+</html>
