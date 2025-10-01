@@ -224,4 +224,4 @@ footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
       alert('WhatsApp will open. Please attach screenshot manually if required and send the message.')
     })
   </script></body>
-</html>
+</html> 
